@@ -33,7 +33,7 @@ const Products = () => {
     useEffect(() => {
         setIsProcessing(true)
 
-        axios.get("http://localhost:8000/products/public-all")
+        axios.get(`${import.meta.env.VITE_API_URL}/products/public-all`)
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {
@@ -98,7 +98,7 @@ const Products = () => {
 
         setIsProcessing(true)
 
-        axios.post("http://localhost:8000/orders/create", orderData, { headers: { Authorization: `Bearer ${jwt}` } })
+        axios.post(`${import.meta.env.VITE_API_URL}/orders/create`, orderData, { headers: { Authorization: `Bearer ${jwt}` } })
             .then((res) => {
                 const { status, data } = res
                 if (status === 200 || status === 201) {

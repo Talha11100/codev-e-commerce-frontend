@@ -64,7 +64,7 @@ const Cart = () => {
 
         setIsProcessing(true)
 
-        axios.post("http://localhost:8000/orders/create", orderData, {
+        axios.post(`${import.meta.env.VITE_API_URL}/orders/create`, orderData, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then((res) => {

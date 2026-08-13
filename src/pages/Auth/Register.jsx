@@ -34,7 +34,7 @@ const Register = () => {
         const formData = { fullName, email, password, confirmPassword }
         setIsProcessing(true)
 
-        axios.post("http://localhost:8000/auth/register", formData)
+        axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, formData)
             .then((res) => {
                 const { status, data } = res
                 if (status === 201) {

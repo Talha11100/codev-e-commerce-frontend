@@ -23,7 +23,7 @@ const Users = () => {
     setIsProcessing(true)
     const jwt = localStorage.getItem("token")
 
-    axios.get("http://localhost:8000/auth/users", { headers: { Authorization: `Bearer ${jwt}` } })
+    axios.get(`${import.meta.env.VITE_API_URL}/auth/users`, { headers: { Authorization: `Bearer ${jwt}` } })
       .then((res) => {
         const { status, data } = res
         if (status === 200) {
@@ -46,7 +46,7 @@ const Users = () => {
     setIsModalOpen(true);
     const jwt = localStorage.getItem("token")
 
-    axios.get(`http://localhost:8000/auth/single/user/${_id}`, { headers: { Authorization: `Bearer ${jwt}` } })
+    axios.get(`${import.meta.env.VITE_API_URL}/auth/single/user/${_id}`, { headers: { Authorization: `Bearer ${jwt}` } })
       .then((res) => {
         const { status, data } = res
         if (status === 200) {
@@ -72,7 +72,7 @@ const Users = () => {
 
     const jwt = localStorage.getItem("token")
 
-    axios.patch(`http://localhost:8000/auth/update-user-by-admin/${state._id}`, formData, { headers: { Authorization: `Bearer ${jwt}` } })
+    axios.patch(`${import.meta.env.VITE_API_URL}/auth/update-user-by-admin/${state._id}`, formData, { headers: { Authorization: `Bearer ${jwt}` } })
       .then((res) => {
         const { status, data } = res
         if (status === 200) {
@@ -98,7 +98,7 @@ const Users = () => {
 
     const jwt = localStorage.getItem("token")
 
-    axios.delete(`http://localhost:8000/auth/delete-user-by-admin/${_id}`, { headers: { Authorization: `Bearer ${jwt}` } })
+    axios.delete(`${import.meta.env.VITE_API_URL}/auth/delete-user-by-admin/${_id}`, { headers: { Authorization: `Bearer ${jwt}` } })
       .then((res) => {
         const { status, data } = res
         if (status === 200) {

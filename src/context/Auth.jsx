@@ -52,7 +52,7 @@ const Auth = ({ children }) => {
             return
         }
 
-        axios.get("http://localhost:8000/auth/user", { headers: { Authorization: `Bearer ${jwt}` } })
+        axios.get(`${import.meta.env.VITE_API_URL}/auth/user`, { headers: { Authorization: `Bearer ${jwt}` } })
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {

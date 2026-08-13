@@ -15,12 +15,12 @@ const Login = () => {
       once: true,
       easing: "ease-in-out"
     })
-  },[])
+  }, [])
 
   const [isProcessing, setIsProcessing] = useState(false)
   const [state, setState] = useState(initialState)
   const navigate = useNavigate()
-  const {readProfile} = useAuth()
+  const { readProfile } = useAuth()
 
   const handleChange = e => setState(s => ({ ...s, [e.target.name]: e.target.value }))
   const handleSubmit = () => {
@@ -29,7 +29,7 @@ const Login = () => {
     const userData = { email, password }
     setIsProcessing(true)
 
-    axios.post("http://localhost:8000/auth/login", userData)
+    axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, userData)
       .then((res) => {
         const { status, data } = res
         if (status === 201) {

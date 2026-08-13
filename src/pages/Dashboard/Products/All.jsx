@@ -25,7 +25,7 @@ const All = () => {
         setIsProcessing(true)
         const token = localStorage.getItem("token")
 
-        axios.get("http://localhost:8000/products/all", { headers: { Authorization: `Bearer ${token}` } })
+        axios.get(`${import.meta.env.VITE_API_URL}/products/all`, { headers: { Authorization: `Bearer ${token}` } })
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {
@@ -50,7 +50,7 @@ const All = () => {
 
         const token = localStorage.getItem("token")
 
-        axios.get(`http://localhost:8000/products/single/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+        axios.get(`${import.meta.env.VITE_API_URL}/products/single/${id}`, { headers: { Authorization: `Bearer ${token}` } })
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {
@@ -82,7 +82,7 @@ const All = () => {
         setIsProcessing(true)
         const token = localStorage.getItem("token")
 
-        axios.patch(`http://localhost:8000/products/update/${id}`, formData, { headers: { Authorization: `Bearer ${token}` } })
+        axios.patch(`${import.meta.env.VITE_API_URL}/products/update/${id}`, formData, { headers: { Authorization: `Bearer ${token}` } })
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {
@@ -111,7 +111,7 @@ const All = () => {
         setIsProcessing(true)
         const token = localStorage.getItem("token")
 
-        axios.delete(`http://localhost:8000/products/delete/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+        axios.delete(`${import.meta.env.VITE_API_URL}/products/delete/${id}`, { headers: { Authorization: `Bearer ${token}` } })
             .then((res) => {
                 const { status, data } = res
                 if (status === 200) {

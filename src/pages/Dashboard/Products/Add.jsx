@@ -48,7 +48,7 @@ const Add = () => {
 
         const token = localStorage.getItem("token")
 
-        axios.post("http://localhost:8000/products/create", formData, { headers: { Authorization: `Bearer ${token}` } })
+        axios.post(`${import.meta.env.VITE_API_URL}/products/create`, formData, { headers: { Authorization: `Bearer ${token}` } })
             .then((res) => {
                 const { status, data } = res
                 if (status === 201) {
